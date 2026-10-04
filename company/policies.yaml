@@ -1,0 +1,29 @@
+approval_required:
+  - action: erp.create_bill
+    when: "amount_inr > 100000"
+    reason: "Bills above INR 1,00,000 need finance-lead approval"
+  - action: erp.update_vendor_bank
+    when: "always"
+    reason: "Bank detail changes are a common fraud vector"
+duplicate_check:
+  action: erp.create_bill
+  key: [vendor_id, invoice_number]
+limits:
+  max_steps: 40
+  max_verify_rounds: 2
+  transient_retries: 3
+# How the generic policy gate recognises a company action from a browser step (task knowledge lives here, not in agent/).
+# "fields" maps a name used in rules/duplicate_check to the visible form label.
+triggers:
+  erp.create_bill:
+    tool: click
+    url_contains: /erp/bills/new
+    button_labels: ["Save bill", "Create bill"]   # chaos mode renames the button
+    fields:
+      vendor_id: "Vendor"
+      invoice_number: "Invoice number"
+      amount_inr: "Amount (INR)"
+    # how to look up existing records for the duplicate check (tool + arg built from a field)
+    lookup: { tool: erp_list_bills, args: { invoice_number: invoice_number } }
+# Environment variable NAMES holding the sandbox credentials (used by the generic re-login skill).
+login: { user_env: ERP_USER, password_env: ERP_PASSWORD }

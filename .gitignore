@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+.DS_Store
+# runs: keep only the example run and the metrics table
+runs/*
+!runs/example/
+!runs/metrics.json
+runs/example/video/
+workspace/downloads/*
+workspace/outputs/*
+workspace/_test_tmp_*/
+!workspace/downloads/.gitkeep
+!workspace/outputs/.gitkeep

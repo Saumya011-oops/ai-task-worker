@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
+playwright
+pypdf
+reportlab
+pydantic>=2
+pyyaml
+python-dotenv
+rich
+httpx
+pytest
+# LLM SDK: keep the one you use
+google-genai
+openai
+anthropic

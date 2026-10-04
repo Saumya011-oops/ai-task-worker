@@ -1,0 +1,12 @@
+{% extends "erp_base.html" %}
+{% block title %}AcmeERP — Bills{% endblock %}
+{% block content %}
+<h1>Bills</h1>
+{% if created %}<p class="success">Bill {{ created }} saved successfully</p>{% endif %}
+<table id="bills">
+  <tr><th>Bill ID</th><th>Vendor</th><th>Invoice no</th><th>Invoice date</th><th>Amount (INR)</th><th>Due date</th><th>Status</th><th>Notes</th></tr>
+  {% for b in bills %}
+  <tr><td>{{ b.id }}</td><td>{{ b.vendor_name }}</td><td>{{ b.invoice_number }}</td><td>{{ b.invoice_date }}</td><td>{{ '%.2f' | format(b.amount) }}</td><td>{{ b.due_date }}</td><td>{{ b.status }}</td><td>{{ b.notes }}</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

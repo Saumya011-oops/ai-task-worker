@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>{% block title %}AcmeERP{% endblock %}</title>
+<style>body{font-family:sans-serif;max-width:1000px;margin:2em auto}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccc;padding:6px;text-align:left}.error{color:#b00}.success{color:#080}label{display:block;margin-top:8px}</style>
+</head><body>
+<header><strong>AcmeERP</strong>
+{% if nav %}<nav><a href="/erp/vendors">Vendors</a> | <a href="/erp/bills">Bills</a> | <a href="/erp/bills/new">New Bill</a> | <a href="/erp/logout">Logout</a></nav>{% endif %}
+</header>
+{% block content %}{% endblock %}
+</body></html>

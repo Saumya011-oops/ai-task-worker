@@ -1,0 +1,9 @@
+{% extends "erp_base.html" %}
+{% block title %}AcmeERP — Vendors{% endblock %}
+{% block content %}
+<h1>Vendors</h1>
+<table id="vendors">
+  <tr><th>ID</th><th>Name</th><th>Email</th><th>Bank account</th></tr>
+  {% for v in vendors %}<tr><td>{{ v.id }}</td><td>{{ v.name }}</td><td>{{ v.email }}</td><td>{{ v.bank_account }}</td></tr>{% endfor %}
+</table>
+{% endblock %}

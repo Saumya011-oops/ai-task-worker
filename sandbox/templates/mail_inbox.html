@@ -1,0 +1,16 @@
+{% extends "mail_base.html" %}
+{% block title %}AcmeMail — Inbox{% endblock %}
+{% block content %}
+<h1>Inbox</h1>
+<form method="get" action="/mail">
+  <label for="q">Search mail</label>
+  <input id="q" name="q" value="{{ q }}">
+  <button>Search</button>
+</form>
+<table id="inbox">
+  <tr><th>Date</th><th>From</th><th>Subject</th><th>Attachment</th></tr>
+  {% for e in emails %}
+  <tr><td>{{ e.date_fmt }}</td><td>{{ e.sender }}</td><td><a href="/mail/{{ e.id }}">{{ e.subject }}</a></td><td>{{ e.attachment or '-' }}</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

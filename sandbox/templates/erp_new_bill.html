@@ -1,0 +1,24 @@
+{% extends "erp_base.html" %}
+{% block title %}AcmeERP — New Bill{% endblock %}
+{% block content %}
+<h1>New Bill</h1>
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+<form method="post" action="/erp/bills">
+  <label for="vendor_id">Vendor</label>
+  <select id="vendor_id" name="vendor_id">
+    <option value="">-- select --</option>
+    {% for x in vendors %}<option value="{{ x.id }}"{% if v.vendor_id == x.id %} selected{% endif %}>{{ x.name }}</option>{% endfor %}
+  </select>
+  <label for="invoice_number">Invoice number</label>
+  <input id="invoice_number" name="invoice_number" type="text" value="{{ v.invoice_number }}">
+  <label for="invoice_date">Invoice date</label>
+  <input id="invoice_date" name="invoice_date" type="date" value="{{ v.invoice_date }}">
+  <label for="amount">Amount (INR)</label>
+  <input id="amount" name="amount" type="text" value="{{ v.amount }}">
+  <label for="due_date">Due date</label>
+  <input id="due_date" name="due_date" type="date" value="{{ v.due_date }}">
+  <label for="notes">Notes</label>
+  <textarea id="notes" name="notes">{{ v.notes }}</textarea>
+  <p><button type="submit">{{ save_label }}</button></p>
+</form>
+{% endblock %}

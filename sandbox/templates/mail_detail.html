@@ -1,0 +1,9 @@
+{% extends "mail_base.html" %}
+{% block title %}AcmeMail — {{ e.subject }}{% endblock %}
+{% block content %}
+<h1>{{ e.subject }}</h1>
+<p>From: {{ e.sender }}</p>
+<p>Date: {{ e.date_fmt }}</p>
+<div class="body">{{ e.body }}</div>
+{% if e.attachment %}<p>Attachment: <a href="/mail/{{ e.id }}/attachment/{{ e.attachment }}">{{ e.attachment }}</a></p>{% endif %}
+{% endblock %}

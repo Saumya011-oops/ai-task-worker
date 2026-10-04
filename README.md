@@ -3,7 +3,7 @@
 
 An AI worker that takes a plain-English business task and **completes it on a computer**. It reads email, opens PDF invoices, logs into an ERP, fills forms, recovers from failures, asks a human when policy or ambiguity requires it, and **independently verifies** the outcome before reporting back with evidence.
 
-> 🎥 **Demo video:** <ADD LINK>  ·  📂 Example run report: [`runs/example/report.html`](runs/example/report.html) (with [`demo.mp4`](runs/example/demo.mp4), the full trace and screenshots)
+> 🎥 **Demo video:** https://drive.google.com/file/d/1-acI8XtIfxBBVXcvv7eZwFrsAXybJOAn/view?usp=sharing  ·  📂 Example run report: [`runs/example/report.html`](runs/example/report.html) (with [`demo.mp4`](runs/example/demo.mp4), the full trace and screenshots)
 
 ```
 Goal → Understand → Plan → Execute → Observe → Adapt → Verify → Complete
